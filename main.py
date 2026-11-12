@@ -1,4 +1,4 @@
-"""news-summary-01 entry (Python 3.13, standard library only).
+"""news-summary-01 entry, v4 (Python 3.13, standard library only).
 
 The summary lives in summary.txt beside this file; the program copies it to
 /output/entry.txt (or $MAKEFUN_OUTPUT_DIR/entry.txt outside the grader).
@@ -15,5 +15,12 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 OUT_DIR = Path(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output"))
 
-OUT_DIR.mkdir(parents=True, exist_ok=True)
-shutil.copyfile(HERE / "summary.txt", OUT_DIR / "entry.txt")
+
+def main():
+    # Entry point: copy summary.txt to the grader's output file.
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(HERE / "summary.txt", OUT_DIR / "entry.txt")
+
+
+if __name__ == "__main__":
+    main()
